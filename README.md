@@ -95,7 +95,7 @@ open SchoolCarpoolMatcher.xcodeproj
 ## 📺 Demo & Screenshots (For Non-Mac Users)
 
 ### 🎥 Demo Video
-> **Coming Soon**: A comprehensive demo video showcasing all app features
+
 > https://rmit-arc.instructuremedia.com/embed/d0454278-c6a0-4bd4-a915-63e4f36c8b0d
 
 **Video will include:**
