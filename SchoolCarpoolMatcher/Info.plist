@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleDocumentTypes</key>
+	<array>
+		<dict/>
+	</array>
+	
+	<!-- F1.1 Requirement: Location Permission Descriptions -->
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>SchoolCarpool needs your location to find nearby families for safe carpool matching and route optimization. Your location is only used to connect you with families in your area going to the same school.</string>
+	
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>SchoolCarpool uses your location to provide real-time coordination during carpool trips and ensure child safety through route tracking. Location data is encrypted and only shared with your carpool group members.</string>
+	
+	<!-- Additional Privacy Descriptions -->
+	<key>NSCameraUsageDescription</key>
+	<string>Camera access is used for profile photos and incident reporting to enhance trust and safety in the carpool community.</string>
+	
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Photo library access allows you to select profile photos and attach images for incident reports or verification documents.</string>
+	
+	<key>NSContactsUsageDescription</key>
+	<string>Contacts access helps you easily invite friends and family to join your carpool groups and share emergency contact information.</string>
+	
+	<key>NSCalendarsUsageDescription</key>
+	<string>Calendar access helps detect scheduling conflicts and suggests optimal carpool times based on your existing commitments.</string>
+	
+	<!-- App Transport Security -->
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<false/>
+		<key>NSExceptionDomains</key>
+		<dict>
+			<key>carpoolmatcher.com</key>
+			<dict>
+				<key>NSExceptionAllowsInsecureHTTPLoads</key>
+				<false/>
+				<key>NSExceptionMinimumTLSVersion</key>
+				<string>TLSv1.2</string>
+			</dict>
+		</dict>
+	</dict>
+	
+	<!-- Background Modes for Location and Notifications -->
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>location</string>
+		<string>background-fetch</string>
+		<string>remote-notification</string>
+	</array>
+	
+	<!-- Supported Interface Orientations -->
+	<key>UISupportedInterfaceOrientations</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+	</array>
+	
+	<!-- Launch Screen -->
+	<key>UILaunchStoryboardName</key>
+	<string>LaunchScreen</string>
+	
+	<!-- App Display Name -->
+	<key>CFBundleDisplayName</key>
+	<string>SchoolCarpool</string>
+	
+	<!-- App Icon -->
+	<key>CFBundleIconName</key>
+	<string>AppIcon</string>
+	
+	<!-- App Version Info -->
+	<key>CFBundleShortVersionString</key>
+	<string>1.0</string>
+	<key>CFBundleVersion</key>
+	<string>1</string>
+	
+	<!-- Minimum iOS Version -->
+	<key>LSMinimumSystemVersion</key>
+	<string>15.0</string>
+	
+	<!-- Apple Design Tips: Accessibility Support -->
+	<key>UIAccessibilityShortcutItems</key>
+	<array>
+		<string>VoiceOver</string>
+		<string>Switch Control</string>
+		<string>Reduce Motion</string>
+		<string>Bold Text</string>
+	</array>
+	
+	<!-- Apple HIG: Document Support Declaration -->
+	<key>LSSupportsOpeningDocumentsInPlace</key>
+	<false/>
+	
+	<!-- Apple Design Tips: User Interface Style -->
+	<key>UIUserInterfaceStyle</key>
+	<string>Automatic</string>
+	
+	<!-- Apple HIG: Status Bar Style -->
+	<key>UIStatusBarStyle</key>
+	<string>UIStatusBarStyleDefault</string>
+	
+	<!-- Apple Design Tips: Preferred Content Size Category -->
+	<key>UIPreferredContentSizeCategory</key>
+	<string>UICTContentSizeCategoryLarge</string>
+	
+	<!-- Apple HIG: Scene Configuration -->
+	<key>UIApplicationSceneManifest</key>
+	<dict>
+		<key>UIApplicationSupportsMultipleScenes</key>
+		<false/>
+		<key>UISceneConfigurations</key>
+		<dict>
+			<key>UIWindowSceneSessionRoleApplication</key>
+			<array>
+				<dict>
+					<key>UISceneConfigurationName</key>
+					<string>Default Configuration</string>
+					<key>UISceneDelegateClassName</key>
+					<string>$(PRODUCT_MODULE_NAME).SceneDelegate</string>
+				</dict>
+			</array>
+		</dict>
+	</dict>
+	
+	<!-- Apple Design Tips: Required Device Capabilities -->
+	<key>UIRequiredDeviceCapabilities</key>
+	<array>
+		<string>armv7</string>
+		<string>location-services</string>
+	</array>
+	
+	<!-- Apple HIG: App Category -->
+	<key>LSApplicationCategoryType</key>
+	<string>public.app-category.travel</string>
+	
+	<!-- Apple Design Tips: URL Schemes for Deep Linking -->
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string>SchoolCarpool</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>schoolcarpool</string>
+			</array>
+		</dict>
+	</array>
+</dict>
+</plist>

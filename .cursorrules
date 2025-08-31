@@ -1,0 +1,228 @@
+
+You are working on an iOS carpool matching app for school transport communities in Canberra, ACT. 
+- Always add debug logs and comments in the code for easier debug and readability
+- Every time you choose to apply a rule(s),explicity state the rule{s} in the output. You can abbreviate the rule decsription to a single word or phrase
+
+
+### Project Structure
+```
+├── buildServer.json
+├── SchoolCarpoolMatcher
+│   ├── Assets.xcassets
+│   │   ├── AccentColor.colorset
+│   │   ├── AppIcon.appiconset
+│   │   └── Contents.json
+│   ├── ContentView.swift
+│   ├── Info.plist
+│   └── SchoolCarpoolMatcherApp.swift
+└── SchoolCarpoolMatcher.xcodeproj
+    ├── project.pbxproj
+    ├── project.xcworkspace
+    │   ├── contents.xcworkspacedata
+    │   ├── xcshareddata
+    │   └── xcuserdata
+    └── xcuserdata
+        └── tashitsering.xcuserdatad
+```
+# Tech Stack
+- SwiftUI and Swift
+
+# Swift specific rules
+
+### 1. ObservableObject Pattern
+```swift
+class MatchingEngine: ObservableObject {
+    @Published var availableFamilies: [Family] = []
+    @Published var currentMatches: [Family] = []
+    
+    func matchWith(family: Family) {
+        // Implementation
+    }
+}
+```
+
+### 2. Environment Objects for Shared State
+```swift
+// Pass down through environment
+.environmentObject(locationManager)
+.environmentObject(matchingEngine)
+
+// Access in child views
+@EnvironmentObject var matchingEngine: MatchingEngine
+```
+
+### 3. Mock Data Strategy
+- All data should work offline for demo purposes
+- Use realistic Canberra addresses and school names
+- Include edge cases (different times, distances, preferences)
+- Data should tell a compelling story for the demo
+
+## UI/UX Guidelines
+
+### Design Principles
+- **Safety First**: Always prioritize child safety in UI messaging
+- **Parent-Focused**: Design for busy parents who need quick, clear information
+- **Trust Building**: Show verification, ratings, and community aspects
+- **iOS Native**: Follow Apple Human Interface Guidelines strictly
+- **Accessibility**: Support Dynamic Type, VoiceOver, high contrast
+
+### Visual Hierarchy
+```swift
+// Primary actions: Prominent buttons
+Button("Match Now") {}.buttonStyle(.prominentFilled)
+
+// Secondary actions: Less prominent
+Button("Skip") {}.buttonStyle(.bordered)
+
+// Destructive actions: Clear visual warning
+Button("Leave Group") {}.foregroundColor(.red)
+```
+
+### Animation Guidelines
+- Use `.spring()` animations for user-triggered actions
+- Keep animations under 0.3 seconds for UI responsiveness
+- Add subtle hover effects and micro-interactions
+- Animate state changes (loading, success, error states)
+
+## Location & Maps Handling
+
+### Location Services
+```swift
+// Always check authorization status
+func requestLocationPermission() {
+    switch locationManager.authorizationStatus {
+    case .notDetermined:
+        locationManager.requestWhenInUseAuthorization()
+    case .denied:
+        // Show settings alert
+    case .authorizedWhenInUse:
+        // Start location updates
+    default:
+        break
+    }
+}
+```
+
+### Map Integration
+- Use Apple Maps exclusively (no Google Maps for iOS)
+- Show safety scores for routes visually
+- Implement custom annotations for family locations
+- Handle offline map scenarios gracefully
+
+## Data Models & Structure
+
+### Core Models Must Include
+```swift
+struct Family: Identifiable, Codable {
+    let id: UUID
+    // Personal info
+    // Location data
+    // Preferences
+    // Safety verification status
+}
+
+struct CarpoolGroup: Identifiable, Codable {
+    let id: UUID
+    // Group metadata
+    // Member relationships
+    // Route optimization data
+    // Safety metrics
+}
+```
+
+### Mock Data Requirements
+- Minimum 20 realistic family profiles
+- Use actual Canberra suburb names and schools
+- Include diverse family situations (different times, car sizes, etc.)
+- Ensure data supports the complete user journey for demo
+
+## Security & Privacy Considerations
+
+### Data Protection (Even for Prototype)
+- Never log real location coordinates in console
+- Use placeholder data for phone numbers and addresses
+- Implement basic input validation
+- Show privacy-conscious messaging in UI
+
+### Child Safety Priority
+```swift
+// Always validate routes for school zones
+func validateRouteForSafety(_ route: Route) -> SafetyScore {
+    // Check school zone compliance
+    // Verify adult supervision ratios
+    // Validate pickup/dropoff protocols
+}
+```
+
+## Error Handling & Edge Cases
+
+### Location Errors
+- Handle location permission denied gracefully
+- Provide fallback experience without location
+- Show clear messaging about limited functionality
+
+### Network/Data Errors
+- App should work completely offline for demo
+- Handle empty states elegantly
+- Provide meaningful error messages to users
+
+### UI Edge Cases
+- Handle different screen sizes (iPhone SE to Pro Max)
+- Test with accessibility settings enabled
+- Ensure text doesn't truncate at smaller sizes
+
+## Performance Considerations
+
+- Prioritize functionality over optimization
+- Use simple algorithms for matching (distance-based)
+- Limit map annotations to prevent performance issues
+- Cache frequently accessed data in memory
+
+### SwiftUI Best Practices
+```swift
+// Use @State for local view state only
+@State private var isShowingDetail = false
+
+// Use @StateObject for view-owned objects
+@StateObject private var locationManager = LocationManager()
+
+// Prefer computed properties for derived UI state
+var isMatchingEnabled: Bool {
+    !availableFamilies.isEmpty && locationPermissionGranted
+}
+```
+
+
+
+### Key Test Scenarios
+1. First-time user onboarding
+2. Successful match and group formation
+3. Group chat functionality
+4. Location permission handling
+5. Empty states (no matches, no location)
+
+
+
+### Demo Optimization
+```swift
+// Prepare demo data that tells a story
+static let demoFamilies = [
+    // Include families with compelling stories
+    // Show diversity in needs and situations
+    // Ensure successful matching scenarios
+]
+```
+
+### Code Comments for Judges
+```swift
+// DEMO: This algorithm prioritizes safety over efficiency
+// In production, would use more sophisticated ML matching
+func simpleDistanceBasedMatching() -> [Family] {
+    // Clear, readable demo logic
+}
+```
+
+
+
+
+

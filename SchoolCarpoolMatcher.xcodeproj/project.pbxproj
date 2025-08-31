@@ -10,9 +10,22 @@
 		FD09FCC02E61F24100AC2232 /* SchoolCarpoolMatcher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SchoolCarpoolMatcher.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		FD09FCCF2E61F3A000AC2232 /* Exceptions for "SchoolCarpoolMatcher" folder in "SchoolCarpoolMatcher" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = FD09FCBF2E61F24100AC2232 /* SchoolCarpoolMatcher */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		FD09FCC22E61F24100AC2232 /* SchoolCarpoolMatcher */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				FD09FCCF2E61F3A000AC2232 /* Exceptions for "SchoolCarpoolMatcher" folder in "SchoolCarpoolMatcher" target */,
+			);
 			path = SchoolCarpoolMatcher;
 			sourceTree = "<group>";
 		};
@@ -256,6 +269,7 @@
 				DEVELOPMENT_TEAM = 2AKTX522RP;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SchoolCarpoolMatcher/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -284,6 +298,7 @@
 				DEVELOPMENT_TEAM = 2AKTX522RP;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SchoolCarpoolMatcher/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
