@@ -105,27 +105,7 @@ open SchoolCarpoolMatcher.xcodeproj
 - Location sharing and route planning
 - Schedule coordination workflow
 
-### 📸 Screenshots
 
-#### Home Dashboard
-> **Screenshot**: Main dashboard with safety metrics and quick actions
-
-#### Family Matching
-> **Screenshot**: Smart matching interface showing nearby families
-
-#### Group Chat
-> **Screenshot**: In-app messaging with safety-focused design
-
-#### Route Planning
-> **Screenshot**: Apple Maps integration with optimized routes
-
-#### Safety Features
-> **Screenshot**: Verification system and safety scoring
-
-#### Schedule Coordination
-> **Screenshot**: Proposal system for schedule changes
-
-*Screenshots will be added to showcase the complete user experience*
 
 ## 🏗️ Project Structure
 
